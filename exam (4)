@@ -1,0 +1,109 @@
+<DOCTYPE html>
+    <html lang ="en">
+        <head>
+            <meta charaset="UTF-8"/>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name ="viewport" content="width=device-width,initial-scale=1.0"/>
+            <title>Employee Details</title>
+
+            <style>
+                table{
+                    border-collapse: collapse;
+                    width: 100%;
+                
+                }
+                th,td{
+                    border:1pt solid#d6efed;
+                    padding: 8px;
+                    text-align: center;
+                    font-size: 12pt;
+                    
+                }
+                th{
+                    background-color: #d6efed;
+                    text-align: center;
+                }
+            </style>
+        </head>
+
+        <body>
+            <table id="Employee table">
+                <thread>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Designation</th>
+                        <th>Date of joining</th>
+                    </tr>
+                </thread>
+
+                <thbody id="EmployeeData">
+
+                </thbody>
+            </table>
+
+            <script>
+
+                const Employee=[{EmployeeName:"Shreya" , Designation : "Technical Writer", Date of joining : "12/11/23",address : "pune",Salary:60000,},
+            {
+                EmployeeName:"viraj",Designation:"technicalwriter",Date of joining : "17/11/23",address:"pune", Salary:610000,},
+
+                {
+                    EmployeeName:"viru",Designation:"technicalwriter",Date of joining : "18/11/23",address:"pune",Salary:600000
+            },
+                 {
+                    EmployeeName:"samruddhi",Designation:"techincalwriter",Date of joining : "19/11/23",address:"pune",Salary:700000},                 
+        ];
+
+              const filteredEmployees=employees.filter((employee)=> employee.Designation==="Technical Writer" && employee.Salary>500000 && employee.Salary<700000);
+
+              const tableBody=document.getElementById("employeeData");
+
+               tableBody.innerHTML="";
+               filteredEmployee.forEach((employee)=>{
+                const row = document.createElement("tr");
+                row.innerHTML='<td>${employee.EmployeeName}</td> <td> ${employee.Designation}</td> <td>${employee.Dateofjoining}</td>';
+                tableBody.appendChild(row);
+               });
+               
+               filterAndDisplay();
+            </script>
+        <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+    </html>
